@@ -48,7 +48,7 @@ def setup_parser() -> argparse.ArgumentParser:
         "--image_extentions",
         type=str,
         default="jpg,jpeg,png,webp",
-        help="Extension of caption files",
+        help="Extension of image files",
     )
     parser.add_argument(
         "--caption_extention",
