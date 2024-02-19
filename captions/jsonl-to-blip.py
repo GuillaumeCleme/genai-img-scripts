@@ -22,7 +22,7 @@ def setup_parser() -> argparse.ArgumentParser:
     parser.add_argument("input_file", type=str, help="JSONL input file containing captions")
     parser.add_argument("captions_dir", type=str, help="Directory where captions should be written")
     parser.add_argument(
-        "--caption_extention",
+        "--caption_extension",
         type=str,
         default="txt",
         help="Extension of caption files",

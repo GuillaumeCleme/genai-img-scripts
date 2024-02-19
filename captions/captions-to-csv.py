@@ -14,8 +14,8 @@ def main(args):
         with open(output_file, 'w') as f:
             pass
 
-    captions_exts = args.captions_extentions.split(",")
-    images_exts = args.image_extentions.split(",")
+    captions_exts = args.captions_extensions.split(",")
+    images_exts = args.image_extensions.split(",")
 
     images = [f for ext in images_exts for f in glob.glob(os.path.join(dir_path, '*.'+ext))]
     i = 0
@@ -49,13 +49,13 @@ def setup_parser() -> argparse.ArgumentParser:
     parser.add_argument("captions_dir", type=str, help="Directory containing captions")
     parser.add_argument("output_file", type=str, help="CSV output file containing captions")
     parser.add_argument(
-        "--image_extentions",
+        "--image_extensions",
         type=str,
         default="jpg,jpeg,png,webp",
         help="Extension of image files",
     )
     parser.add_argument(
-        "--captions_extentions",
+        "--captions_extensions",
         type=str,
         default="txt",
         help="Extension of caption files",

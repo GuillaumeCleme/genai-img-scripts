@@ -15,7 +15,7 @@ def main(args):
         with open(output_file, 'w') as f:
             pass
 
-    exts = args.image_extentions.split(",")
+    exts = args.image_extensions.split(",")
     files = [f for ext in exts for f in glob.glob(os.path.join(dir_path, '*.'+ext))]
     i = 0
 
@@ -25,7 +25,7 @@ def main(args):
             name = Path(file).name
             file_name_parts = [name[:name.rfind(".")], name[name.rfind("."):]]
 
-            caption_file = Path(args.captions_dir) / (file_name_parts[0] + "." + args.caption_extention)
+            caption_file = Path(args.captions_dir) / (file_name_parts[0] + "." + args.caption_extension)
             with open(caption_file, "r", encoding="utf-8") as f2:
                 item = {
                     "image-ref": f"{args.ref_prefix}{file_name_parts[0] + file_name_parts[1]}",
@@ -45,13 +45,13 @@ def setup_parser() -> argparse.ArgumentParser:
     parser.add_argument("captions_dir", type=str, help="Directory containing captions")
     parser.add_argument("output_file", type=str, help="JSONL output file containing captions")
     parser.add_argument(
-        "--image_extentions",
+        "--image_extensions",
         type=str,
         default="jpg,jpeg,png,webp",
         help="Extension of image files",
     )
     parser.add_argument(
-        "--caption_extention",
+        "--caption_extension",
         type=str,
         default="txt",
         help="Extension of caption files",
